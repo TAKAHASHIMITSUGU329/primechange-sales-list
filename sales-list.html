@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRIME CHANGE 営業リスト | ホテル清掃サービス</title>
+  <meta name="description" content="PRIME CHANGEのホテル清掃サービス向け営業リスト。優先度、営業仮説、提案切り口、初回アクションを見やすく整理。">
+  <link rel="stylesheet" href="sales-list.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="PRIME CHANGE home">
+      <img src="https://primechange.co.jp/wp-content/themes/prime_change/assets/img/logo.png" alt="PRIME CHANGE">
+    </a>
+    <nav>
+      <a href="index.html">ホームページ案</a>
+      <a href="primechange_hotel_cleaning_sales_list.csv">CSV</a>
+      <a href="primechange_hotel_cleaning_sales_list.md">Markdown</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Hotel cleaning sales list</p>
+        <h1>ホテル清掃サービス向け<br>おすすめ営業リスト</h1>
+        <p class="lead">PRIME CHANGEの強みである人材集客、教育、品質管理、現場改善と相性がよいホテル運営会社を、営業優先度と提案切り口つきで整理しました。</p>
+      </div>
+      <aside class="note">
+        <strong>前提</strong>
+        <p>公開情報をもとにした営業仮説です。現在の清掃委託状況、既存取引、入札時期、担当部署は初回接触時に確認してください。</p>
+      </aside>
+    </section>
+
+    <section class="summary" aria-label="営業リスト概要">
+      <article>
+        <span id="totalCount">-</span>
+        <p>候補企業</p>
+      </article>
+      <article>
+        <span id="priorityACount">-</span>
+        <p>優先度A</p>
+      </article>
+      <article>
+        <span>首都圏</span>
+        <p>重点エリア</p>
+      </article>
+      <article>
+        <span>清掃品質</span>
+        <p>主な提案軸</p>
+      </article>
+    </section>
+
+    <section class="strategy">
+      <div>
+        <p class="eyebrow">Recommended first targets</p>
+        <h2>最初に攻めるべき10社</h2>
+      </div>
+      <ol id="topTargets" class="top-targets"></ol>
+    </section>
+
+    <section class="controls" aria-label="絞り込み">
+      <div class="search">
+        <label for="searchInput">検索</label>
+        <input id="searchInput" type="search" placeholder="会社名、ブランド、エリア、提案切り口で検索">
+      </div>
+      <div class="filters" role="group" aria-label="優先度フィルター">
+        <button type="button" class="filter is-active" data-priority="all">すべて</button>
+        <button type="button" class="filter" data-priority="A">優先度A</button>
+        <button type="button" class="filter" data-priority="B">優先度B</button>
+        <button type="button" class="filter" data-priority="C">優先度C</button>
+      </div>
+    </section>
+
+    <section class="cards-section">
+      <div class="section-title">
+        <h2>営業先カード</h2>
+        <p><span id="visibleCount">-</span>件を表示中</p>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section class="table-section">
+      <div class="section-title">
+        <h2>一覧表</h2>
+        <p>営業管理ツールへ転記しやすい形式</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>優先度</th>
+              <th>営業先</th>
+              <th>ブランド</th>
+              <th>エリア</th>
+              <th>狙う部署</th>
+              <th>提案切り口</th>
+              <th>初回アクション</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody id="salesTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>PRIME CHANGE 営業リスト / 作成日 2026-05-22</p>
+  </footer>
+
+  <script src="sales-list.js"></script>
+</body>
+</html>
