@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI活用・不動産・ハートン業務改善 定例 議事メモ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f6f7f4;
+      --surface: #ffffff;
+      --surface-soft: #fbfaf6;
+      --ink: #202322;
+      --muted: #626b67;
+      --line: #dfe3dc;
+      --green: #28634d;
+      --red: #bd3431;
+      --blue: #315a83;
+      --gold: #a87932;
+      --shadow: 0 18px 44px rgba(31, 35, 32, .09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.72;
+      letter-spacing: 0;
+      background: var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 258px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 28px 22px;
+      color: #f8faf7;
+      background: #242a27;
+      border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: #242a27;
+      font-size: 18px;
+      font-weight: 900;
+      background: #f8faf7;
+      border-radius: 8px;
+    }
+
+    .brand p {
+      margin: 0;
+      color: #b9c5bf;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .brand strong {
+      display: block;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .rail nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .rail a {
+      display: block;
+      padding: 9px 10px;
+      color: #e2e9e5;
+      font-size: 13px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .rail a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .rail-meta {
+      position: absolute;
+      right: 22px;
+      bottom: 24px;
+      left: 22px;
+      padding-top: 18px;
+      color: #aeb9b4;
+      font-size: 12px;
+      line-height: 1.65;
+      border-top: 1px solid rgba(255, 255, 255, .13);
+    }
+
+    main {
+      padding: 34px;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.42fr) minmax(280px, .8fr);
+      gap: 22px;
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .hero-main,
+    .metric,
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      position: relative;
+      padding: 34px;
+      overflow: hidden;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      width: 28px;
+      height: 2px;
+      content: "";
+      background: var(--green);
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    td,
+    th {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 18px 0 16px;
+      font-size: 40px;
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 27px;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.38;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 850px;
+      margin: 0;
+      color: #3f4744;
+      font-size: 16px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 118px;
+      padding: 22px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .metric-value {
+      margin-top: 8px;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .metric-note {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 28px;
+    }
+
+    .section-head {
+      display: flex;
+      gap: 20px;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .topic,
+    .decision,
+    .note-card {
+      padding: 18px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .topic strong,
+    .decision strong {
+      display: inline-flex;
+      min-width: 34px;
+      height: 26px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      color: #fff;
+      font-size: 12px;
+      background: var(--green);
+      border-radius: 6px;
+    }
+
+    .topic p,
+    .decision p,
+    .note-card p {
+      margin: 0;
+      color: #424b47;
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child {
+      border-top: 0;
+    }
+
+    .time {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: #3f4744;
+    }
+
+    ul {
+      padding-left: 1.2em;
+      margin: 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      font-size: 14px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    th,
+    td {
+      padding: 12px 13px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: #fff;
+      font-size: 12px;
+      background: #303833;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .priority {
+      display: inline-flex;
+      min-width: 44px;
+      justify-content: center;
+      padding: 2px 7px;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      border-radius: 999px;
+    }
+
+    .high {
+      background: var(--red);
+    }
+
+    .mid {
+      background: var(--gold);
+    }
+
+    .low {
+      background: var(--blue);
+    }
+
+    .quote {
+      padding: 18px 20px;
+      color: #38413d;
+      background: #eef4f0;
+      border-left: 4px solid var(--green);
+      border-radius: 8px;
+    }
+
+    .quote p {
+      margin: 0;
+    }
+
+    .footer-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        display: block;
+      }
+
+      .rail {
+        position: relative;
+        height: auto;
+      }
+
+      .rail-meta {
+        position: static;
+        margin-top: 22px;
+      }
+
+      .hero,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 20px 14px;
+      }
+
+      .hero-main,
+      .section {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .section-head {
+        display: grid;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="rail">
+      <div class="brand">
+        <div class="mark">CB</div>
+        <p><strong>Meeting Memo</strong>Circleback transcript整理</p>
+      </div>
+      <nav aria-label="ページ内ナビゲーション">
+        <a href="#summary">概要</a>
+        <a href="#topics">主要論点</a>
+        <a href="#timeline">流れ</a>
+        <a href="#decisions">決定・方針</a>
+        <a href="#actions">アクション</a>
+        <a href="#next">次回確認</a>
+      </nav>
+      <div class="rail-meta">
+        <div>作成日: 2026-06-05</div>
+        <div>元データ: Circleback transcript</div>
+        <div>会議時間: 49分16秒</div>
+      </div>
+    </aside>
+
+    <main>
+      <div class="wrap">
+        <section class="hero" id="summary">
+          <div class="hero-main">
+            <span class="kicker">2026.06.05 Regular Meeting</span>
+            <h1>AI活用・不動産・ハートン業務改善 定例 議事メモ</h1>
+            <p class="lead">Codexを中心にしたAI活用、ミャンマー人材向けのリアルタイム翻訳、外国人入居を前提にした社員寮・管理会社戦略、ハートンホテルの指示書マクロ改善について議論した。特に後半は、ハートン現場で発生している残置チェック、BD等の部屋番号管理、Slack共有体制が具体的な実務課題として整理された。</p>
+          </div>
+          <div class="hero-side">
+            <div class="metric">
+              <div class="metric-label">会議名</div>
+              <div class="metric-value">AI活用・不動産・ハートン業務改善 定例</div>
+              <div class="metric-note">Circleback より取得</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">参加者</div>
+              <div class="metric-value">3名</div>
+              <div class="metric-note">Participant 1 / 2 / 3</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="topics">
+          <div class="section-head">
+            <h2>主要論点</h2>
+            <p>話題は広いが、次に動くべき領域はかなり明確。AI活用を業務改善に接続し、不動産と現場運用に落とす方向。</p>
+          </div>
+          <div class="grid-3">
+            <article class="topic">
+              <strong>01</strong>
+              <h3>Codex / AIエージェント活用</h3>
+              <p>開発・HTML作成・会計データチェック・PDF整理などでCodexの品質と使いやすさを評価。Google Workspace / Gemini系ツールとの比較も行い、現状はCodexの方が実務に乗せやすいという認識。</p>
+            </article>
+            <article class="topic">
+              <strong>02</strong>
+              <h3>ミャンマー人材向け翻訳ツール</h3>
+              <p>オリエンテーション時に、日本語説明をリアルタイムで翻訳表示し、資料と並べて見せられる仕組みを検討。Web上では遅延や品質に限界があり、専用画面やアプリ化の可能性も話した。</p>
+            </article>
+            <article class="topic">
+              <strong>03</strong>
+              <h3>社員寮・外国人入居の不動産戦略</h3>
+              <p>公開物件ではなく、管理会社や知人ルートからオーナー情報・売却意向を得る方が有効。将来的には外国人入居に理解ある管理会社機能を持つ構想も出た。</p>
+            </article>
+            <article class="topic">
+              <strong>04</strong>
+              <h3>ハートンホテル指示書改善</h3>
+              <p>残置防止のFSチェック列、BD等のステータス部屋番号、カウントの説明難易度など、現場で具体的な改善要望が発生。マクロへの組み込みと共有体制が課題。</p>
+            </article>
+            <article class="topic">
+              <strong>05</strong>
+              <h3>経理・会計データのAI化</h3>
+              <p>freeeやGoogle Driveにある資料、弥生会計のCSV/Excel出力をAIで読み込み、月次資料・チェック・分析・助言に使える可能性を確認。自社データであればまず試す価値が高い。</p>
+            </article>
+            <article class="topic">
+              <strong>06</strong>
+              <h3>セキュリティとAI利用ルール</h3>
+              <p>AI活用は進める一方、データ流出やサイバーセキュリティ評価制度への対応は今後厳しくなる見込み。個人情報・外部情報の扱いは慎重に設計する。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="timeline">
+          <div class="section-head">
+            <h2>会議の流れ</h2>
+            <p>transcript の内容を時間帯ごとに要約。</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">0:00-8:25</div>
+              <p>Codex、Claude、Google系AIエージェントの比較。開発品質、HTML作成、業務アウトプットの速度、生産性向上について確認。Codexは特にものづくり・開発・ページ作成に強いという評価。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">1:49-4:20</div>
+              <p>ミャンマー人材向けの説明・オリエンテーションで、話している内容をリアルタイムに翻訳して表示する案を検討。資料と翻訳を同時表示できる画面があると、言葉の壁を下げられる。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">8:26-19:40</div>
+              <p>不動産・社員寮の物件獲得について議論。リースバック、管理会社、保証会社、知人ルート、管理会社への仲介手数料や継続管理メリットなどを整理。外国人入居に理解ある管理会社構想も話した。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">19:40-23:59</div>
+              <p>翻訳・プレゼン画面の試作イメージ、AIエージェントで個別機能を作る考え方、小林さんの業務効率化・現場改善の進捗を共有。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">24:00-37:00</div>
+              <p>ハートンとのやり取り状況、小林さんを交えた支援体制、AIを使ったマクロ作成、税理士・会計データ処理のAI化、freeeやGoogle Drive連携の可能性、セキュリティ面の注意を議論。</p>
+            </div>
+            <div class="timeline-item">
+              <div class="time">37:45-49:16</div>
+              <p>Participant 3 が参加し、ハートンホテルの具体課題を相談。FSチェック列追加、残置防止、BD等の部屋番号集計、Slackチャンネル共有、現地訪問・電話でのヒアリング、Excelマクロの文字コード指定について確認。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="decisions">
+          <div class="section-head">
+            <h2>決定・方針</h2>
+            <p>明示された決定と、会話上ほぼ合意された方向性。</p>
+          </div>
+          <div class="grid-3">
+            <article class="decision">
+              <strong>方針</strong>
+              <h3>AI活用はCodex中心に実務へ寄せる</h3>
+              <p>HTML作成、マクロ、会計データ分析、資料整理など、現場の小さな改善をCodexで素早く作る方向。</p>
+            </article>
+            <article class="decision">
+              <strong>方針</strong>
+              <h3>翻訳ツールは資料同時表示を重視</h3>
+              <p>ミャンマー人材向け説明では、音声翻訳だけでなく、資料を見ながら理解できる表示体験が必要。</p>
+            </article>
+            <article class="decision">
+              <strong>方針</strong>
+              <h3>不動産は管理会社ルートを探る</h3>
+              <p>売却意向やオーナー事情は保証会社より管理会社に集まりやすい。中原さんなど知人ルートの確認を進める。</p>
+            </article>
+            <article class="decision">
+              <strong>決定</strong>
+              <h3>ハートン用Slackチャンネルを作る</h3>
+              <p>メールの1対1ではなく、相談内容や現場ヒアリングを共有できる場に三菱さんを招待する。</p>
+            </article>
+            <article class="decision">
+              <strong>決定</strong>
+              <h3>FSチェック列追加をマクロ側で検討</h3>
+              <p>残置防止のため、指示書右端にFS欄を追加。複数行に分かれる部屋では FS / 空白 / FS のようにズレない形で入れる。</p>
+            </article>
+            <article class="decision">
+              <strong>決定</strong>
+              <h3>今日午後の現場訪問を調整</h3>
+              <p>ハートン側の都合を確認し、可能なら13時以降または14時以降に現地で相談する流れ。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="actions">
+          <div class="section-head">
+            <h2>アクションプラン</h2>
+            <p>担当は transcript の文脈から推定。必要に応じて次回確認で補正。</p>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>アクション</th>
+                <th>担当</th>
+                <th>期限目安</th>
+                <th>優先度</th>
+                <th>メモ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>中原さんに、管理会社ルート・売却意向のある物件情報・他の管理会社との接点を確認する</td>
+                <td>P1</td>
+                <td>次回まで</td>
+                <td><span class="priority high">高</span></td>
+                <td>社員寮・外国人入居向けの物件探索。管理会社が情報源として有力。</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>ミャンマー人材向けのリアルタイム翻訳画面を試作する</td>
+                <td>P1 / P2</td>
+                <td>来週ミャンマー来訪前後</td>
+                <td><span class="priority mid">中</span></td>
+                <td>資料表示と翻訳字幕の同時表示。Webだけで厳しければ専用画面も検討。</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>ハートン用の共有Slackチャンネルを作成し、三菱さんを招待する</td>
+                <td>P2 / P3</td>
+                <td>早急</td>
+                <td><span class="priority high">高</span></td>
+                <td>メールではなく共有の場で、現場課題・要望・ファイルを整理する。</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>ハートン指示書マクロにFSチェック列を追加できるか検証する</td>
+                <td>P1</td>
+                <td>早急</td>
+                <td><span class="priority high">高</span></td>
+                <td>2行/3行/4行に分かれる部屋でも行ズレしないようにする。</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>ハートンのカウント・日報集計の説明しづらい箇所を現地または電話でヒアリングする</td>
+                <td>P1 / P3</td>
+                <td>本日午後候補</td>
+                <td><span class="priority high">高</span></td>
+                <td>言語化が難しいため、画面や実物を見ながら確認する方がよい。</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>BD等のステータス部屋番号を指示書・集計欄へ自動反映する案を整理する</td>
+                <td>P3 / P1</td>
+                <td>責任者間で要件確認後</td>
+                <td><span class="priority mid">中</span></td>
+                <td>手書き運用でミスが出る可能性があるため、チェックボックスやステータス入力を検討。</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Excelマクロ生成時の文字コード指定を統一する</td>
+                <td>P3</td>
+                <td>次回作成時から</td>
+                <td><span class="priority mid">中</span></td>
+                <td>会話上は Shift_JIS が候補。インポートエラーや文字化けを減らす。</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>freee / Google Drive / 会計資料をAIで月次分析する小さな試作を行う</td>
+                <td>P2</td>
+                <td>準備でき次第</td>
+                <td><span class="priority low">低</span></td>
+                <td>まず自社データで試し、外部情報・個人情報の扱いは別途ルール化。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" id="next">
+          <div class="section-head">
+            <h2>次回確認したいこと</h2>
+            <p>次の打ち合わせで確認すると、実装と運用に進みやすい項目。</p>
+          </div>
+          <div class="grid-3">
+            <div class="note-card">
+              <h3>ハートン</h3>
+              <ul>
+                <li>FS列追加の実装可否と、実際の指示書レイアウトでのズレ有無</li>
+                <li>BD等の部屋番号集計をどこまで自動化するか</li>
+                <li>Slackチャンネルで誰が要望をまとめるか</li>
+              </ul>
+            </div>
+            <div class="note-card">
+              <h3>不動産</h3>
+              <ul>
+                <li>中原さんから得られた管理会社・物件情報</li>
+                <li>外国人入居を受け入れる管理会社モデルの検討状況</li>
+                <li>管理会社に提示できるメリット設計</li>
+              </ul>
+            </div>
+            <div class="note-card">
+              <h3>AI活用</h3>
+              <ul>
+                <li>ミャンマー向け翻訳表示の試作結果</li>
+                <li>経理・会計データのAI分析に使うデータ範囲</li>
+                <li>AI利用時のデータ持ち出し・セキュリティルール</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="quote" style="margin-top: 20px;">
+            <p>補足: transcript は自動文字起こしのため、話者名・固有名詞・一部表現に誤変換が含まれる可能性があります。この議事メモは文脈から読み取れる範囲で実務向けに整理しています。</p>
+          </div>
+          <p class="footer-note">参照元: circleback_transcript_2026-06-05_ai_realestate_hearton.md</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
