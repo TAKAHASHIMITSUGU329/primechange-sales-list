@@ -208,6 +208,34 @@
       font-size: 16px;
     }
 
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .button-link {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+      background: var(--green);
+      border: 1px solid rgba(40, 99, 77, .2);
+      border-radius: 8px;
+    }
+
+    .button-link.secondary {
+      color: var(--green);
+      background: #eef4f0;
+      border-color: #cddbd3;
+    }
+
     .hero-side {
       display: grid;
       gap: 14px;
@@ -481,6 +509,10 @@
             <span class="kicker">2026.06.05 Regular Meeting</span>
             <h1>AI活用・不動産・ハートン業務改善 定例 議事メモ</h1>
             <p class="lead">Codexを中心にしたAI活用、ミャンマー人材向けのリアルタイム翻訳、外国人入居を前提にした社員寮・管理会社戦略、ハートンホテルの指示書マクロ改善について議論した。特に後半は、ハートン現場で発生している残置チェック、BD等の部屋番号管理、Slack共有体制が具体的な実務課題として整理された。</p>
+            <div class="hero-actions" aria-label="関連リンク">
+              <a class="button-link" href="myanmar-translator.html">ミャンマー語翻訳アプリを開く</a>
+              <a class="button-link secondary" href="circleback_transcript_2026-06-05_ai_realestate_hearton.md">transcriptを見る</a>
+            </div>
           </div>
           <div class="hero-side">
             <div class="metric">
