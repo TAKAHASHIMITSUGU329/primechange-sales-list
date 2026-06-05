@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026年6月5日 春野社長MTG アジェンダ</title>
+  <style>
+    :root {
+      --ink: #171717;
+      --muted: #5f646b;
+      --line: #e6e0dc;
+      --paper: #fffaf5;
+      --white: #ffffff;
+      --red: #c73532;
+      --red-dark: #94201e;
+      --green: #315b4b;
+      --gold: #bd9150;
+      --blue: #315a83;
+      --shadow: 0 18px 46px rgba(23, 23, 23, .1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.65;
+      background: var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px clamp(18px, 4vw, 56px);
+      background: rgba(255, 250, 245, .94);
+      border-bottom: 1px solid rgba(23, 23, 23, .08);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      color: var(--red);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .topbar nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      justify-content: flex-end;
+    }
+
+    .topbar nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+
+    main {
+      padding-bottom: 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: end;
+      padding: clamp(48px, 7vw, 92px) clamp(20px, 5vw, 72px);
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(23, 23, 23, .88), rgba(23, 23, 23, .68)),
+        url("https://primechange.co.jp/wp-content/themes/prime_change/assets/img/service/cleaning_mv_2.jpg") center / cover;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #f3c986;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(34px, 5.8vw, 72px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(24px, 3.5vw, 40px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .88);
+      font-size: 18px;
+    }
+
+    .hero-card {
+      padding: 24px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, .94);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-size: 18px;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: clamp(38px, 6vw, 72px) clamp(20px, 5vw, 72px) 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .summary-card,
+    .agenda-card,
+    .decision-card,
+    .memo-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .summary-card {
+      min-height: 150px;
+      padding: 22px;
+    }
+
+    .summary-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 42px;
+      margin-bottom: 16px;
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 900;
+      background: var(--green);
+      border-radius: 6px;
+    }
+
+    .summary-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .agenda-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: agenda;
+    }
+
+    .agenda-card {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr) minmax(220px, 360px);
+      gap: 18px;
+      align-items: start;
+      padding: 20px;
+      counter-increment: agenda;
+    }
+
+    .time {
+      display: grid;
+      gap: 6px;
+      color: var(--red);
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .time::before {
+      content: counter(agenda, decimal-leading-zero);
+      width: 36px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 13px;
+      background: var(--red);
+      border-radius: 6px;
+    }
+
+    .agenda-card p,
+    .decision-card p,
+    .memo-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .checkpoints {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checkpoints li {
+      position: relative;
+      padding: 0 0 8px 22px;
+      color: #303236;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .checkpoints li::before {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      content: "";
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .decision-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .decision-card {
+      padding: 22px;
+      border-left: 7px solid var(--red);
+    }
+
+    .decision-card:nth-child(2) {
+      border-left-color: var(--green);
+    }
+
+    .decision-card:nth-child(3) {
+      border-left-color: var(--blue);
+    }
+
+    .decision-card:nth-child(4) {
+      border-left-color: var(--gold);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 9px 14px;
+      color: var(--white);
+      font-weight: 900;
+      text-decoration: none;
+      background: var(--ink);
+      border-radius: 6px;
+    }
+
+    .links a:nth-child(2) {
+      background: var(--red);
+    }
+
+    .links a:nth-child(3) {
+      background: var(--green);
+    }
+
+    .memo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .memo-card {
+      min-height: 170px;
+      padding: 22px;
+    }
+
+    .memo-lines {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .memo-lines span {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .closing {
+      margin-top: clamp(38px, 6vw, 72px);
+      padding: 28px clamp(20px, 5vw, 72px);
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .closing p {
+      max-width: 980px;
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, .78);
+      font-weight: 700;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .agenda-card,
+      .summary-grid,
+      .decision-grid,
+      .memo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .agenda-card {
+        gap: 12px;
+      }
+    }
+
+    @media print {
+      .topbar {
+        position: static;
+      }
+
+      .hero {
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      .hero-card,
+      .summary-card,
+      .agenda-card,
+      .decision-card,
+      .memo-card {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top">PRIME CHANGE MTG</a>
+    <nav aria-label="ページ内ナビゲーション">
+      <a href="#recap">前回確認</a>
+      <a href="#agenda">アジェンダ</a>
+      <a href="#decisions">決めること</a>
+      <a href="#memo">メモ</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">2026.06.05 / 10:00 / Haruno CEO Meeting</p>
+        <h1>春野社長MTG アジェンダ</h1>
+        <p class="lead">前回の擬似メモをもとに、AI活用、営業リスト、Web改善、社員寮不動産の進捗を確認し、今日から動かす優先順位を決める。</p>
+      </div>
+      <aside class="hero-card">
+        <strong>今日のゴール</strong>
+        <p>細かい説明で終わらせず、営業・Web・不動産・AI運用の次アクションを社長判断で確定する。</p>
+      </aside>
+    </section>
+
+    <section id="recap" class="section">
+      <div class="section-head">
+        <h2>前回からの確認</h2>
+        <p>2026年5月22日の議事メモから、今回のMTGで扱う論点を4つに絞る。</p>
+      </div>
+      <div class="summary-grid">
+        <article class="summary-card">
+          <span>AI</span>
+          <h3>Claude / Codex運用</h3>
+          <p>音声データ、議事録、既存資料を蓄積し、営業・記事・事業改善に使う。</p>
+        </article>
+        <article class="summary-card">
+          <span>営業</span>
+          <h3>ホテル清掃営業リスト</h3>
+          <p>上位候補10社を起点に、既存接点と営業優先度を社長目線で確認する。</p>
+        </article>
+        <article class="summary-card">
+          <span>Web</span>
+          <h3>サイト改善</h3>
+          <p>問い合わせ獲得、FC募集、採用、信頼感のどれを先に強化するか決める。</p>
+        </article>
+        <article class="summary-card">
+          <span>寮</span>
+          <h3>社員寮不動産</h3>
+          <p>価格や利回りだけでなく、社員がいつ使えるか、治安、現地印象を重視する。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="agenda" class="section">
+      <div class="section-head">
+        <h2>本日の進行</h2>
+        <p>60分想定。画面共有しながら、各成果物を短く見せて判断事項に寄せる。</p>
+      </div>
+      <ol class="agenda-list">
+        <li class="agenda-card">
+          <div class="time">5分</div>
+          <div>
+            <h3>前回合意の確認</h3>
+            <p>前回の4テーマと、今日決めたいことを共有する。</p>
+          </div>
+          <ul class="checkpoints">
+            <li>AI活用はClaude/Codex中心</li>
+            <li>音声・議事録を継続蓄積</li>
+            <li>営業リストとWeb改善を試作</li>
+          </ul>
+        </li>
+        <li class="agenda-card">
+          <div class="time">15分</div>
+          <div>
+            <h3>営業リストの確認</h3>
+            <p>上位10社を見ながら、営業対象としての違和感、既存接点、最初に当たる会社を確認する。</p>
+          </div>
+          <ul class="checkpoints">
+            <li>JHAT / SQUEEZE / Section L</li>
+            <li>既存取引・知人接点の有無</li>
+            <li>初回メールの切り口</li>
+          </ul>
+        </li>
+        <li class="agenda-card">
+          <div class="time">15分</div>
+          <div>
+            <h3>Web改善の優先順位</h3>
+            <p>PRIME CHANGEの真面目さ、誠実さ、品質が伝わる方向で、最初に直す導線を決める。</p>
+          </div>
+          <ul class="checkpoints">
+            <li>ホテル清掃問い合わせ</li>
+            <li>FC募集・資料請求</li>
+            <li>採用・メンバー訴求</li>
+          </ul>
+        </li>
+        <li class="agenda-card">
+          <div class="time">10分</div>
+          <div>
+            <h3>社員寮不動産の判断軸</h3>
+            <p>資料上の候補を見ながら、社員寮用途で本当に使いやすい条件を絞る。</p>
+          </div>
+          <ul class="checkpoints">
+            <li>既存入居者と利用開始時期</li>
+            <li>治安・駅距離・近隣環境</li>
+            <li>紹介依頼先の確認</li>
+          </ul>
+        </li>
+        <li class="agenda-card">
+          <div class="time">10分</div>
+          <div>
+            <h3>AI運用ルールの決定</h3>
+            <p>今後の音声データ、議事録、営業資料をどこに保存し、どうAIに読ませるか決める。</p>
+          </div>
+          <ul class="checkpoints">
+            <li>保存フォルダ</li>
+            <li>毎回の議事録化</li>
+            <li>月次振り返り・社長フィードバック</li>
+          </ul>
+        </li>
+        <li class="agenda-card">
+          <div class="time">5分</div>
+          <div>
+            <h3>次アクション確認</h3>
+            <p>担当、期限、次回MTGで見る成果物を決める。</p>
+          </div>
+          <ul class="checkpoints">
+            <li>営業: 最初の接触先</li>
+            <li>Web: 初回修正範囲</li>
+            <li>不動産: 追加確認項目</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="decisions" class="section">
+      <div class="section-head">
+        <h2>社長に確認したいこと</h2>
+        <p>ここだけは必ず決める。決まれば、今日のMTGは前に進んだと言える。</p>
+      </div>
+      <div class="decision-grid">
+        <article class="decision-card">
+          <h3>営業</h3>
+          <p>上位10社で最初に当たる会社はどこか。既存接点がある会社はあるか。</p>
+        </article>
+        <article class="decision-card">
+          <h3>Web</h3>
+          <p>問い合わせ獲得、FC募集、採用、信頼感のうち、最初に強化する目的はどれか。</p>
+        </article>
+        <article class="decision-card">
+          <h3>不動産</h3>
+          <p>社員寮用途では、利回りよりも利用開始時期と環境を優先してよいか。</p>
+        </article>
+        <article class="decision-card">
+          <h3>AI運用</h3>
+          <p>音声・議事録・資料を継続的に貯める保存場所と、月次レビューのやり方を決める。</p>
+        </article>
+      </div>
+      <div class="links">
+        <a href="sales-list.html">営業リストを見る</a>
+        <a href="index.html">Web改善案を見る</a>
+        <a href="real-estate.html">不動産比較を見る</a>
+      </div>
+    </section>
+
+    <section id="memo" class="section">
+      <div class="section-head">
+        <h2>決定メモ</h2>
+        <p>MTG中に決まったことをここに手書き・口頭メモとして残す。</p>
+      </div>
+      <div class="memo-grid">
+        <article class="memo-card">
+          <h3>決定事項</h3>
+          <div class="memo-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </article>
+        <article class="memo-card">
+          <h3>次アクション</h3>
+          <div class="memo-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>冒頭トーク案</h2>
+      <p>「前回の内容をもとに、営業リスト、ホームページ改善案、不動産比較の3つは見える形にしました。今日は細かい説明より、社長の判断が必要な優先順位を決めたいです。」</p>
+    </section>
+  </main>
+</body>
+</html>
