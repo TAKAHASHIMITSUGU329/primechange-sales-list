@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ラジオ打ち合わせ(春野) 議事メモ</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f6f3;
+      --surface: #ffffff;
+      --surface-soft: #f9faf6;
+      --ink: #202422;
+      --muted: #65706b;
+      --line: #dfe5df;
+      --green: #28634d;
+      --blue: #315a83;
+      --red: #b83a34;
+      --gold: #a87932;
+      --shadow: 0 18px 44px rgba(32, 36, 34, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0;
+      background: var(--paper);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 252px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .rail {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 28px 22px;
+      color: #f7fbf8;
+      background: #232a27;
+      border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: #232a27;
+      font-weight: 900;
+      background: #f7fbf8;
+      border-radius: 8px;
+    }
+
+    .brand strong {
+      display: block;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .brand span {
+      display: block;
+      color: #b8c5be;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .rail nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .rail a {
+      display: block;
+      padding: 9px 10px;
+      color: #e0e8e3;
+      font-size: 13px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .rail a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .rail-meta {
+      position: absolute;
+      right: 22px;
+      bottom: 24px;
+      left: 22px;
+      padding-top: 18px;
+      color: #adbbb4;
+      font-size: 12px;
+      line-height: 1.65;
+      border-top: 1px solid rgba(255, 255, 255, .13);
+    }
+
+    main {
+      padding: 34px;
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero,
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .hero {
+      grid-template-columns: minmax(0, 1.45fr) minmax(286px, .8fr);
+      align-items: stretch;
+      margin-bottom: 22px;
+    }
+
+    .infographic {
+      margin-bottom: 22px;
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .infographic img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .slide-preview {
+      margin-bottom: 22px;
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .slide-preview h2 {
+      margin-bottom: 6px;
+      font-size: 20px;
+    }
+
+    .slide-preview p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .slide-frame {
+      width: 100%;
+      height: min(72vh, 720px);
+      min-height: 420px;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface-soft);
+    }
+
+    .hero-main,
+    .metric,
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 34px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      width: 28px;
+      height: 2px;
+      content: "";
+      background: var(--green);
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    td,
+    th {
+      overflow-wrap: anywhere;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 14px 0 16px;
+      font-size: clamp(31px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 23px;
+      line-height: 1.32;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .lead {
+      max-width: 880px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .meta {
+      padding: 14px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .meta span,
+    .metric span,
+    .item-label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .meta strong,
+    .metric strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 15px;
+    }
+
+    .metrics {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 20px;
+    }
+
+    .metric strong {
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .section {
+      margin-bottom: 22px;
+      padding: 28px;
+    }
+
+    .section-header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 15px;
+    }
+
+    .section-header p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .badge {
+      flex: 0 0 auto;
+      padding: 5px 10px;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      border: 1px solid rgba(40, 99, 77, .28);
+      border-radius: 999px;
+      background: rgba(40, 99, 77, .07);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      padding: 18px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .card.accent-green {
+      border-top: 4px solid var(--green);
+    }
+
+    .card.accent-blue {
+      border-top: 4px solid var(--blue);
+    }
+
+    .card.accent-gold {
+      border-top: 4px solid var(--gold);
+    }
+
+    .card.accent-red {
+      border-top: 4px solid var(--red);
+    }
+
+    .note-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .note-list li {
+      padding: 14px 16px;
+      background: var(--surface-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 13px 12px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      background: var(--surface-soft);
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+      background: var(--green);
+      border-radius: 8px;
+    }
+
+    .resource-link:hover {
+      background: #1f513e;
+    }
+
+    @media (max-width: 940px) {
+      .page {
+        display: block;
+      }
+
+      .rail {
+        position: static;
+        height: auto;
+      }
+
+      .rail-meta {
+        position: static;
+        margin-top: 18px;
+      }
+
+      .hero,
+      .infographic,
+      .slide-preview,
+      .split,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-frame {
+        height: 520px;
+      }
+
+      main {
+        padding: 20px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        display: block;
+      }
+
+      .rail {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      .hero-main,
+      .metric,
+      .infographic,
+      .slide-preview,
+      .section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <aside class="rail">
+      <div class="brand">
+        <div class="mark">CB</div>
+        <div>
+          <strong>Circleback Notes</strong>
+          <span>2026-06-19 / 15:00 JST</span>
+        </div>
+      </div>
+      <nav aria-label="ページ内ナビゲーション">
+        <a href="#summary">要旨</a>
+        <a href="#decisions">決定・合意</a>
+        <a href="#actions">アクション</a>
+        <a href="#discussion">議論メモ</a>
+        <a href="#transcript">トランスクリプト</a>
+        <a href="#next">次回アポ</a>
+      </nav>
+      <div class="rail-meta">
+        会議名: ラジオ打ち合わせ(春野)<br>
+        原典: Circleback 通知メール<br>
+        作成日: 2026-06-20
+      </div>
+    </aside>
+
+    <main>
+      <div class="wrap">
+        <figure class="infographic">
+          <img src="meeting-assets/business-hotel-media-strategy.png" alt="ビジネスホテル特化型メディア戦略のインフォグラフィック">
+        </figure>
+
+        <section class="slide-preview" id="slides">
+          <h2>関連スライド: The Primechange Blueprint</h2>
+          <p>最近ダウンロードされたスライド資料です。表示されない場合は、下のリンクからPDFを開いてください。</p>
+          <a class="resource-link" href="meeting-assets/the-primechange-blueprint.pdf" target="_blank" rel="noopener noreferrer">スライドを開く</a>
+          <object class="slide-frame" data="meeting-assets/the-primechange-blueprint.pdf" type="application/pdf">
+            <p><a href="meeting-assets/the-primechange-blueprint.pdf">The Primechange Blueprint PDFを開く</a></p>
+          </object>
+        </section>
+
+        <section class="hero" id="top">
+          <div class="hero-main">
+            <div class="kicker">Meeting Memo</div>
+            <h1>春野さん個人を起点に、ホテル業界メディアと採用導線を設計する</h1>
+            <p class="lead">高橋さんが春野さんとメディアプロデューサーの阿部さんを引き合わせ、PRIMECHANGE の採用・ブランディング・メディア展開を相談した会議。会社名を前面に出すよりも、春野さん個人のファンを先につくり、福岡を起点に YouTube とテレビCMを組み合わせる方向で合意した。</p>
+            <div class="meta-grid">
+              <div class="meta">
+                <span>日時</span>
+                <strong>2026年6月19日 15:00-16:00</strong>
+              </div>
+              <div class="meta">
+                <span>形式</span>
+                <strong>Zoom ミーティング</strong>
+              </div>
+              <div class="meta">
+                <span>主な参加者</span>
+                <strong>高橋さん / 春野さん / 阿部さん</strong>
+              </div>
+              <div class="meta">
+                <span>次回</span>
+                <strong>2026年7月3日 10:00 五反田</strong>
+              </div>
+              <div class="meta">
+                <span>トランスクリプト</span>
+                <strong><a href="#transcript">Circlebackで確認</a></strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics">
+            <div class="metric">
+              <span>最優先課題</span>
+              <strong>現場責任者の採用</strong>
+            </div>
+            <div class="metric">
+              <span>メディア方針</span>
+              <strong>会社より社長個人を前面へ</strong>
+            </div>
+            <div class="metric">
+              <span>攻め筋</span>
+              <strong>福岡 x ビジネスホテル</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="transcript">
+          <div class="section-header">
+            <div>
+              <h2>トランスクリプト</h2>
+              <p>Circleback の会議ページで全文トランスクリプトと録音、詳細ノートを確認できます。</p>
+            </div>
+            <span class="badge">Transcript</span>
+          </div>
+          <div class="cards">
+            <article class="card accent-green">
+              <h3>Circleback の全文ページ</h3>
+              <p>メール本文に含まれていた「View full meeting」のリンクです。Circleback にログイン済みのブラウザで開くと、トランスクリプトを確認できます。</p>
+              <a class="resource-link" href="https://mt-link.circleback.ai/cl/d.fA.kpoxLHn4BGzBiCFCNCFHcrR1LonGsyUiif6RTm_.7KOGCgFXA.Zr6YZV7YqXgT62hCSmytu7BxamacYKgbfykZrpfkJRQDmX9qysMMjJJHa3D2AVcMVN1is3mqFOgs98MRe3qWkM.62umjtQCZIr97i0owai6UF_t57D54wg0DcUdfp107_aIZjmujBMwaw1tORJXA3D8D5zSEkOsJL0IvU4sRFrdxPHUAB.yevA6PpbJImvig7FH9vJwBlBZ2ldwIYfbN2a7N7v71SGHqJYDMGKGnCxLSqXGcGNzarl8di.nFyFg~~--gmxCUeh5YTboH0Qh--9CgGA9hSyQ7afwLvqAUNwA~~" target="_blank" rel="noopener noreferrer">トランスクリプトを開く</a>
+            </article>
+            <article class="card accent-blue">
+              <h3>補足</h3>
+              <p>今回 Gmail で取得できた Circleback 通知メールには、全文の逐語トランスクリプト本文ではなく、要約・Action Items・論点整理が含まれていました。この議事メモはその通知内容を原典に整理しています。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="summary">
+          <div class="section-header">
+            <div>
+              <h2>要旨</h2>
+              <p>Circleback ノートから抽出した会議全体の結論。</p>
+            </div>
+            <span class="badge">Executive Summary</span>
+          </div>
+          <ul class="note-list">
+            <li>春野さんは株式会社プライムチェンジを2016年2月に創業。ホテル客室清掃を中心に、関東・名古屋・福岡で28店舗、社員70名、アルバイトを含め約600名規模で展開している。</li>
+            <li>最大の経営課題は採用で、特に現場責任者となる社員の採用を強化したい。社員採用では、日本の専門学校または大学を卒業した留学生も重要な対象になる。</li>
+            <li>阿部さんは、会社名を売るより春野さん個人の顔・生き様・社員との接し方を前面に出し、個人へのファン化から番組出演や冠番組につなげるストーリー設計を提案した。</li>
+            <li>ビジネスホテルに特化したメディアはまだ空白が大きく、春野さんが業界を紹介するパイオニアとして立つことで、採用色を強く出さずに自然な採用・営業導線をつくれる。</li>
+            <li>福岡出身という文脈を活かし、福岡をターゲットに YouTube 認知とテレビCM認知を組み合わせる方向が有望。春野さんも福岡での出店・契約拡大意欲が高い。</li>
+          </ul>
+        </section>
+
+        <section class="section" id="decisions">
+          <div class="section-header">
+            <div>
+              <h2>決定・合意事項</h2>
+              <p>次の企画検討で前提にしてよい合意点。</p>
+            </div>
+            <span class="badge">Decisions</span>
+          </div>
+          <div class="cards">
+            <article class="card accent-green">
+              <h3>個人ブランディングを主軸にする</h3>
+              <p>会社の YouTube として始めるのではなく、春野さん個人の人物像・思想・現場への向き合い方を軸にする。</p>
+            </article>
+            <article class="card accent-blue">
+              <h3>ビジネスホテル特化で差別化する</h3>
+              <p>ラグジュアリーホテル紹介とは違う市場で、ビジネスホテル業界・清掃・人材のリアルを扱う。</p>
+            </article>
+            <article class="card accent-gold">
+              <h3>福岡から認知を取りに行く</h3>
+              <p>東京よりも地元文脈で支持者を作りやすい福岡を起点に、YouTube とテレビCMの連動を検討する。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="actions">
+          <div class="section-header">
+            <div>
+              <h2>アクションアイテム</h2>
+              <p>Circleback が抽出した ToDo を、実行しやすい形に整形。</p>
+            </div>
+            <span class="badge">Action Items</span>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>担当</th>
+                <th>内容</th>
+                <th>期限・タイミング</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>高橋さん</td>
+                <td>PRIMECHANGEの五反田オフィスで、春野さんのメディア戦略について次回対面ミーティングを実施する。</td>
+                <td>2026年7月3日 10:00</td>
+              </tr>
+              <tr>
+                <td>阿部さん / 未割当</td>
+                <td>今回の議論をもとに、春野さんのメディア露出・ブランディング・マネタイズの流れを示す簡単なロードマップを作成する。</td>
+                <td>7月3日の訪問まで</td>
+              </tr>
+              <tr>
+                <td>高橋さん</td>
+                <td>事前企画「PRIMECHANGE HOTEL RADIO」と今回の方針を統合し、採用・ブランディング・営業支援のどこを初期KPIに置くか整理する。</td>
+                <td>次回ミーティング前</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" id="discussion">
+          <div class="section-header">
+            <div>
+              <h2>議論メモ</h2>
+              <p>主要論点をテーマ別に整理。</p>
+            </div>
+            <span class="badge">Discussion</span>
+          </div>
+          <div class="split">
+            <article class="card accent-green">
+              <h3>春野さん・阿部さんの自己紹介</h3>
+              <ul>
+                <li>春野さんはホテル客室清掃を主事業とするプライムチェンジ代表。現在11期目。</li>
+                <li>アルバイトの約8割が外国籍で、社員は日本人と外国籍がほぼ半々。</li>
+                <li>阿部さんはテレビ、SNS、マスメディアを組み合わせ、採用・売上・営業成果の向上を支援している。</li>
+              </ul>
+            </article>
+            <article class="card accent-blue">
+              <h3>採用ニーズ</h3>
+              <ul>
+                <li>最優先は現場責任者となる社員採用。</li>
+                <li>留学生採用が重要な対象。日本の専門学校・大学を卒業した人材が想定されている。</li>
+                <li>上場は延長線上にあるが、現時点では積極的に目指す段階ではない。</li>
+              </ul>
+            </article>
+            <article class="card accent-gold">
+              <h3>個人ブランディング</h3>
+              <ul>
+                <li>会社名を打ち出すだけの YouTube は埋もれやすい。</li>
+                <li>社長個人の顔、生き様、社員への接し方を見せることでファン化を狙う。</li>
+                <li>春野さんは以前から前に出る必要性を感じており、今回を転機にする意向。</li>
+              </ul>
+            </article>
+            <article class="card accent-red">
+              <h3>ビジネスホテル特化チャンネル</h3>
+              <ul>
+                <li>ビジネスホテル領域は、ラグジュアリーホテル系コンテンツと異なる空白市場。</li>
+                <li>採用を前面に出すのではなく、業界紹介・職業紹介の中に自然に採用要素を織り込む。</li>
+                <li>ホテルクライアントへの採用支援・集客支援まで広げることで、清掃業務以外の関係性とLTVを高められる。</li>
+              </ul>
+            </article>
+            <article class="card accent-green">
+              <h3>福岡ターゲット</h3>
+              <ul>
+                <li>春野さんは福岡出身。地元文脈は支持者を作りやすい。</li>
+                <li>福岡では昨年7月に1店舗出店済みで、今年中にさらに2件程度の契約獲得を目指している。</li>
+                <li>阿部さんは福岡でテレビCM展開を持っており、YouTube とCMの組み合わせを提案。</li>
+              </ul>
+            </article>
+            <article class="card accent-blue">
+              <h3>メディア露出の順序</h3>
+              <ul>
+                <li>いきなり番組出演を狙うのではなく、SNSでファンを作ってから番組出演・冠番組へ進める。</li>
+                <li>スポンサー誘致も阿部さん側で対応可能。</li>
+                <li>事例として、FX情報発信者の冠番組に証券会社スポンサーが付いたケースが共有された。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="next">
+          <div class="section-header">
+            <div>
+              <h2>次回アポと準備論点</h2>
+              <p>7月3日の対面ミーティングで確認したいこと。</p>
+            </div>
+            <span class="badge">Next Meeting</span>
+          </div>
+          <div class="cards">
+            <article class="card accent-green">
+              <h3>日時・場所</h3>
+              <p>2026年7月3日（金）10:00、PRIMECHANGEの五反田オフィスで対面ミーティング。</p>
+            </article>
+            <article class="card accent-blue">
+              <h3>確認したいKPI</h3>
+              <p>初期目的を採用、個人ブランディング、ホテル向け営業支援、福岡での認知獲得のどれに置くか。</p>
+            </article>
+            <article class="card accent-gold">
+              <h3>用意したい素材</h3>
+              <p>春野さんのプロフィール、福岡出店状況、採用したい人材像、過去TikTok実績、PRIMECHANGE HOTEL RADIOの企画案。</p>
+            </article>
+          </div>
+        </section>
+
+        <p class="source">Source: Circleback email "Notes for ラジオ打ち合わせ(春野)" received 2026-06-19 16:00 JST. Calendar event: ラジオ打ち合わせ(春野), 2026-06-19 15:00-16:00 JST.</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
